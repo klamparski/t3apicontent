@@ -1,0 +1,49 @@
+config.tx_extbase.persistence.classes {
+    Klamparski\T3apicontent\Domain\Model\ContentElement {
+        mapping {
+            tableName = tt_content
+            columns {
+                CType.mapOnProperty = type
+            }
+        }
+        subclasses {
+            header = Klamparski\T3apicontent\Domain\Model\HeaderContentElement
+            text = Klamparski\T3apicontent\Domain\Model\TextContentElement
+            textpic = Klamparski\T3apicontent\Domain\Model\TextAndImagesContentElement
+        }
+    }
+
+    Klamparski\T3apicontent\Domain\Model\HeaderContentElement {
+        mapping {
+            recordType = header
+            tableName = tt_content
+        }
+    }
+
+    Klamparski\T3apicontent\Domain\Model\TextContentElement {
+        mapping {
+            recordType = text
+            tableName = tt_content
+        }
+    }
+
+    Klamparski\T3apicontent\Domain\Model\TextAndImagesContentElement < .Klamparski\T3apicontent\Domain\Model\TextContentElement
+    Klamparski\T3apicontent\Domain\Model\TextAndImagesContentElement {
+        mapping {
+            recordType = textpic
+            columns {
+                image.mapOnProperty = images
+            }
+        }
+    }
+
+    Klamparski\T3apicontent\Domain\Model\Page {
+        mapping {
+            tableName = pages
+            columns {
+                tx_t3apicontent_pages.mapOnProperty = pages
+                tx_t3apicontent_content_elements.mapOnProperty = contentElements
+            }
+        }
+    }
+}
