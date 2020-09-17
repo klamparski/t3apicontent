@@ -4,6 +4,7 @@ config.tx_extbase.persistence.classes {
             tableName = tt_content
             columns {
                 CType.mapOnProperty = type
+                colPos.mapOnProperty = colPos
             }
         }
         subclasses {
