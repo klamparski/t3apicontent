@@ -16,4 +16,4 @@ This repository is a proof of concept of outputting TYPO3 content (pages and con
  
 - Outputs `bodytext` of `textpic` content element as RTE field parsed via TYPO3 build-in parser. It Registers custom serializer handler (`\Klamparski\T3apicontent\Serializer\RteHandler`) utilizing t3api serializer handlers registration (in final solution this should be included in t3api core)
 
-- Process images inside `textpic` content element: Inside `\Klamparski\T3apicontent\Domain\Model\TextAndImagesContentElement::images` images with default sizes are outputted while inside `\Klamparski\T3apicontent\Domain\Model\TextAndImagesContentElement::getImagesMin()` rulez for `maxWidth` and `maxHeight` are applied.
+- Process images inside `textpic` content element: Inside `\Klamparski\T3apicontent\Domain\Model\TextAndImagesContentElement::images` images with default sizes are outputted while inside `\Klamparski\T3apicontent\Domain\Model\TextAndImagesContentElement::getImagesMin()` rules for `maxWidth` and `maxHeight` are applied. `VirtualProperty` annotation ensures that `imagesMin` property is included in JSON output.
