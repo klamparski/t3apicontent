@@ -1,9 +1,0 @@
-Klamparski\T3apicontent\Domain\Model\ContentElement:
-  discriminator:
-    field_name: type
-    disabled: true
-    map:
-      header: Klamparski\T3apicontent\Domain\Model\HeaderContentElement
-      text: Klamparski\T3apicontent\Domain\Model\TextContentElement
-      textpic: Klamparski\T3apicontent\Domain\Model\TextAndImagesContentElement
-

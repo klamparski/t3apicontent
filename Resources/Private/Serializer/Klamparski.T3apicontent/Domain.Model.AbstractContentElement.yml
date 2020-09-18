@@ -1,0 +1,14 @@
+Klamparski\T3apicontent\Domain\Model\AbstractContentElement:
+  discriminator:
+    field_name: type
+    disabled: true
+    map:
+      bullets: Klamparski\T3apicontent\Domain\Model\BulletsContentElement
+      header: Klamparski\T3apicontent\Domain\Model\HeaderContentElement
+      image: Klamparski\T3apicontent\Domain\Model\ImageContentElement
+      table: Klamparski\T3apicontent\Domain\Model\TableContentElement
+      text: Klamparski\T3apicontent\Domain\Model\TextContentElement
+      textmedia: Klamparski\T3apicontent\Domain\Model\TextmediaContentElement
+      textpic: Klamparski\T3apicontent\Domain\Model\TextpicContentElement
+      uploads: Klamparski\T3apicontent\Domain\Model\UploadsContentElement
+

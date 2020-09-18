@@ -43,7 +43,7 @@ class Page extends AbstractEntity
     protected $pages;
 
     /**
-     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Klamparski\T3apicontent\Domain\Model\ContentElement>
+     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Klamparski\T3apicontent\Domain\Model\AbstractContentElement>
      * @TYPO3\CMS\Extbase\Annotation\ORM\Lazy
      */
     protected $contentElements;

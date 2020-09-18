@@ -1,5 +1,5 @@
 config.tx_extbase.persistence.classes {
-    Klamparski\T3apicontent\Domain\Model\ContentElement {
+    Klamparski\T3apicontent\Domain\Model\AbstractContentElement {
         mapping {
             tableName = tt_content
             columns {
@@ -8,28 +8,48 @@ config.tx_extbase.persistence.classes {
             }
         }
         subclasses {
+            bullets = Klamparski\T3apicontent\Domain\Model\BulletsContentElement
             header = Klamparski\T3apicontent\Domain\Model\HeaderContentElement
+            image = Klamparski\T3apicontent\Domain\Model\ImageContentElement
+            table = Klamparski\T3apicontent\Domain\Model\TableContentElement
             text = Klamparski\T3apicontent\Domain\Model\TextContentElement
-            textpic = Klamparski\T3apicontent\Domain\Model\TextAndImagesContentElement
+            textmedia = Klamparski\T3apicontent\Domain\Model\TextmediaContentElement
+            textpic = Klamparski\T3apicontent\Domain\Model\TextpicContentElement
+            uploads = Klamparski\T3apicontent\Domain\Model\UploadsContentElement
         }
     }
-
+    Klamparski\T3apicontent\Domain\Model\BulletsContentElement {
+        mapping {
+            recordType = bullets
+            tableName = tt_content
+        }
+    }
     Klamparski\T3apicontent\Domain\Model\HeaderContentElement {
         mapping {
             recordType = header
             tableName = tt_content
         }
     }
-
+    Klamparski\T3apicontent\Domain\Model\ImageContentElement {
+        mapping {
+            recordType = image
+            tableName = tt_content
+        }
+    }
+    Klamparski\T3apicontent\Domain\Model\TableContentElement {
+        mapping {
+            recordType = table
+            tableName = tt_content
+        }
+    }
     Klamparski\T3apicontent\Domain\Model\TextContentElement {
         mapping {
             recordType = text
             tableName = tt_content
         }
     }
-
-    Klamparski\T3apicontent\Domain\Model\TextAndImagesContentElement < .Klamparski\T3apicontent\Domain\Model\TextContentElement
-    Klamparski\T3apicontent\Domain\Model\TextAndImagesContentElement {
+    Klamparski\T3apicontent\Domain\Model\TextpicContentElement < .Klamparski\T3apicontent\Domain\Model\TextContentElement
+    Klamparski\T3apicontent\Domain\Model\TextpicContentElement {
         mapping {
             recordType = textpic
             columns {
@@ -37,7 +57,18 @@ config.tx_extbase.persistence.classes {
             }
         }
     }
-
+    Klamparski\T3apicontent\Domain\Model\TextmediaContentElement < .Klamparski\T3apicontent\Domain\Model\TextContentElement
+    Klamparski\T3apicontent\Domain\Model\TextmediaContentElement {
+        mapping {
+            recordType = textmedia
+        }
+    }
+    Klamparski\T3apicontent\Domain\Model\UploadsContentElement {
+        mapping {
+            recordType = uploads
+            tableName = tt_content
+        }
+    }
     Klamparski\T3apicontent\Domain\Model\Page {
         mapping {
             tableName = pages
@@ -45,6 +76,11 @@ config.tx_extbase.persistence.classes {
                 tx_t3apicontent_pages.mapOnProperty = pages
                 tx_t3apicontent_content_elements.mapOnProperty = contentElements
             }
+        }
+    }
+    Klamparski\T3apicontent\Domain\Model\FileReference {
+        mapping {
+            tableName = sys_file_reference
         }
     }
 }
