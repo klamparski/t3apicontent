@@ -6,7 +6,7 @@ namespace Klamparski\T3apicontent\Domain\Model;
 use SourceBroker\T3api\Annotation as T3api;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 
-abstract class ContentElement extends AbstractEntity
+abstract class AbstractContentElement extends AbstractEntity
 {
     /**
      * @var string

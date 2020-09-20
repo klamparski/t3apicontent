@@ -1,0 +1,4 @@
+Klamparski\T3apicontent\Domain\Model\FileReference:
+  properties:
+    uidLocal:
+      exclude: true
