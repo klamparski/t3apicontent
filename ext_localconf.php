@@ -15,8 +15,7 @@ call_user_func(
         $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['t3api']['serializerHandlers'] = array_merge(
             $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['t3api']['serializerHandlers'] ?? [],
             [
-                \Klamparski\T3apicontent\Serializer\CommaSeparatedValueHandler::class,
-                \Klamparski\T3apicontent\Serializer\MatrixHandler::class,
+                \Klamparski\T3apicontent\Serializer\Handler\DataProcessorHandler::class,
                 \Klamparski\T3apicontent\Serializer\RteHandler::class,
             ]
         );
