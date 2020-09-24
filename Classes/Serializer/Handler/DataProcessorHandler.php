@@ -54,13 +54,13 @@ class DataProcessorHandler extends AbstractHandler implements SerializeHandlerIn
         $processor = $this->objectManager->get($processorName);
 
         // @todo Check if data processor data shouldn't be more unique - some processors does not rely on similar configuration
-        //     This solution works for `CommaSeparatedValueProcessor` and `SplitProcessor` but definitely may fails for others - not tested.
-        //     Maybe it will be better to create separate handlers for every type
+        //     This solution works for `CommaSeparatedValueProcessor`, `SplitProcessor` and `FlexFormProcessor` but definitely
+        //     may fails for others - not tested. Maybe it will be better to create separate handlers for every type
         $cObj = $this->getContentObjectRenderer();
 
         // @todo we pass fake value here. To make it work as in TYPO3 core whole database record should be passed to `start` method
         //     Think about fetching database record (using $context->getObject()->getUid()) and passing it instead of fake array
-        $cObj->start(['value' => $value]);
+        $cObj->start(['value' => $value, 'data' => ['value' => $value]]);
 
         ['value' => $output] = $processor->process(
             $cObj,
@@ -74,7 +74,8 @@ class DataProcessorHandler extends AbstractHandler implements SerializeHandlerIn
                 ]
             ),
             [
-                'value' => $value
+                'value' => $value,
+                'data' => ['value' => $value]
             ]
         );
 
